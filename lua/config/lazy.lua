@@ -6,17 +6,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("config.globals")
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
+require "config.globals"
+require "config.options"
+require "config.keymaps"
+require "config.autocmds"
 
 local opts = {
   defaults = {
     lazy = true,
   },
   install = {
-    colorscheme = { "carbonfox" },
+    colorscheme = { "nightfox" },
   },
   rtp = {
     disabled_plugins = {

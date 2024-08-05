@@ -15,7 +15,7 @@ local config = function()
 
   -- lua
   lspconfig.lua_ls.setup {
-    -- capabilities = capabilities,
+    capabilities = capabilities,
     on_attach = on_attach,
     settings = { -- custom settings for lua
       Lua = {
@@ -23,13 +23,6 @@ local config = function()
         diagnostics = {
           globals = { "vim" },
         },
-        -- workspace = {
-        --   -- make language server aware of runtime files
-        --   library = {
-        --     vim.fn.expand "$VIMRUNTIME/lua",
-        --     vim.fn.stdpath("config") .. "/lua"),
-        --   },
-        -- },
         workspace = {
           library = {
             vim.fn.expand "$VIMRUNTIME/lua",
@@ -42,7 +35,7 @@ local config = function()
 
   -- python
   lspconfig.pyright.setup {
-    -- capabilities = capabilities,
+    capabilities = capabilities,
     on_attach = on_attach,
     settings = {
       pyright = {

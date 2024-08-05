@@ -1,26 +1,23 @@
 local config = function()
-	local theme = require("lualine.themes.gruvbox")
-
-	-- set bg transparency in all modes
-	theme.normal.c.bg = nil
-	theme.insert.c.bg = nil
-	theme.visual.c.bg = nil
-	theme.replace.c.bg = nil
-	theme.command.c.bg = nil
+	local palette = require("nightfox.palette").load("carbonfox")
+	local custom_nightfox = require("lualine.themes.nightfox")
+	custom_nightfox.normal.b.bg = palette.bg0
 
 	require("lualine").setup({
 		options = {
-			theme = theme,
+			theme = custom_nightfox,
 			globalstatus = true,
+			component_separators = { left = "|", right = "|" },
+			section_separators = { left = "", right = "" },
 		},
-		tabline = {}, 
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "buffers" },
-			lualine_x = { "encoding", "fileformat", "filetype" },
-			lualine_y = { "progress" },
+			lualine_x = { "encoding", "fileformat", "filetype", "progress" },
+			lualine_y = { "" },
 			lualine_z = { "location" },
-    }
+		},
+		tabline = {},
 	})
 end
 

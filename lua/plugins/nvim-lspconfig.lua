@@ -50,6 +50,22 @@ local config = function()
     },
   }
 
+  -- go
+  lspconfig.gopls.setup {
+    root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+      gopls = {
+        gofumpt = true,
+        staticcheck = true,
+        analyses = {
+          unusedparams = true,
+        },
+      },
+    },
+  }
+
   local luacheck = require "efmls-configs.linters.luacheck"
   local stylua = require "efmls-configs.formatters.stylua"
 
@@ -61,6 +77,10 @@ local config = function()
     filetypes = {
       "lua",
       "python",
+      "go",
+      "gomod",
+      "gowork",
+      "gotmpl",
       -- "json",
       -- "jsonc",
       -- "sh",
@@ -86,6 +106,7 @@ local config = function()
       languages = {
         lua = { luacheck, stylua },
         python = { flake8, black, mypy },
+        -- go = {},
         -- typescript = { eslint_d, prettierd },
         -- json = { eslint_d, fixjson },
         -- jsonc = { eslint_d, fixjson },

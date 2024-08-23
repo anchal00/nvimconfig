@@ -11,6 +11,7 @@ local opts = {
     "lua_ls",
     "emmet_ls",
     "jsonls",
+    "gopls",
   },
 
   automatic_installation = true,

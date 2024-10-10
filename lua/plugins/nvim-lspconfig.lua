@@ -57,7 +57,6 @@ local config = function()
     on_attach = on_attach,
     settings = {
       gopls = {
-        gofumpt = true,
         staticcheck = true,
         analyses = {
           unusedparams = true,
